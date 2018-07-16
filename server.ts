@@ -19,7 +19,7 @@ function getProducts(): Product[] {
 }
 
  app.get('/', (req, res) => {
-     res.send('The URL for products is http://localhost:8000/api/products');
+     res.send("Listening on " + port + " and " + server.address());
  });
 
 app.get('/api/products', (req, res) => {
