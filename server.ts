@@ -1,6 +1,8 @@
 import * as express from "express";
+import * as cors from "cors";
 
 const app = express();
+app.use(cors());
 
 interface Product {
     id: number,
@@ -23,6 +25,7 @@ function getProducts(): Product[] {
  });
 
 app.get('/api/products', (req, res) => {
+    console.log("got request for products" );
     res.json(getProducts());
 });
 
@@ -37,5 +40,5 @@ app.get('/api/products/:id', (req, res) => {
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
     //const {address, port} = server.address();
-    console.log("Listening on " + server.address());
+    console.log("Listening on " + server.address().toString());
 });
